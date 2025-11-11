@@ -1,5 +1,5 @@
 # AutoCash
-[PyPI 0.2](https://pypi.org/project/autocash/0.1/)
+[PyPI 0.1](https://pypi.org/project/autocash/0.1/)
 
 مكتبة `AutoCash` مكتبة استلام مدفوعات تلقائى فى مصر و العراق .
 
@@ -35,8 +35,16 @@ print("Payment Link:", payment_link)
 payeer_link = autocash.create_payeer_payment_link(amount=100, callback_link="https://yourcallback.url")
 print("Payeer Payment Link:", payeer_link)
 
+# إنشاء رابط دفع ل OKX
+okx_link = autocash.create_okx_payment_link(amount=100, extra="username")
+print("OKX Payment Link:", okx_link)
+
+# إنشاء رابط دفع ل Binance
+binance_link = autocash.create_binance_payment_link(amount=100, extra="username")
+print("Binance Payment Link:", binance_link)
+
 # إحضار بيانات العملية
-status = autocash.get_payment_status(key="KEY")
+status = autocash.get_payment_status(key="معرف العملية")
 
 #تكون status من نوع dict و تحتوى على بيانات كالمثال التالى :
 """status = {
@@ -49,13 +57,22 @@ status = autocash.get_payment_status(key="KEY")
 "user":"uSQ5ho94PQ4a4GreG"
 }"""
 
+
 # التحقق من عملية دفع تلقائيا
 check = autocash.check_payment(phone="1234567890", amount=100)
+
+# التحقق من عملية دفع تلقائيا OKX
+check = autocash.check_okx_payment(amount=100, txid="معرف العملية", extra="username")
+
+# التحقق من عملية دفع تلقائيا Binance
+check = autocash.check_binance_payment(amount=100, txid="معرف العملية", extra="username")
+
 
 #تكون check من نوع dict و تحتوى على بيانات كالمثال التالى :
 """check = {
 "status":true,
 "message":"تم إكمال عملية الدفع بنجاح بمبلغ 60 جنية .",
+"key": "معرف العملية"
 }"""
 
 # الحصول على معلومات لوحة تحكم
