@@ -1,5 +1,5 @@
 # AutoCash
-[PyPI 0.1](https://pypi.org/project/autocash/0.1/)
+[PyPI](https://pypi.org/project/autocash/)
 
 مكتبة `AutoCash` مكتبة استلام مدفوعات تلقائى فى مصر و العراق .
 
