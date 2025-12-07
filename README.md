@@ -68,7 +68,7 @@ status = autocash.get_payment_status(key="معرف العملية")
 
 
 # التحقق من عملية دفع تلقائيا
-check = autocash.check_payment(phone="1234567890", amount=100)
+check = autocash.check_payment(phone="1234567890", amount=100, extra="username")
 
 # التحقق من عملية دفع تلقائيا OKX
 check = autocash.check_okx_payment(amount=100, txid="معرف العملية", extra="username")
