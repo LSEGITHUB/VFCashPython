@@ -44,18 +44,26 @@ print("OKX Payment Link:", okx_link)
 binance_link = autocash.create_binance_payment_link(amount=100, extra="username")
 print("Binance Payment Link:", binance_link)
 
-# إحضار بيانات العملية
+# إحضار بيانات العملية من صفحة callback (PHP)
+#$key = $_GET["key"]; //معرف العملية
+#$extra = $_GET["extra"]; //يرجع بالقيمة المسجلة عند انشاء رابط دفع
+#$usd = $_GET["usd"]; //سعر العملة بالدولار (متاحه للمحافظ الرقمية فقط)
+#$crypto = $_GET["crypto"]; //العملات الرقمية التى كان يجب تحويلها (متاحه للمحافظ الرقمية فقط)
+
+
+#احضار بيانات عملية الدفع بمعرف العملية key
 status = autocash.get_payment_status(key="معرف العملية")
 
 #تكون status من نوع dict و تحتوى على بيانات كالمثال التالى :
 """status = {
-"amount":"5.00",
-"category":"VF-Cash",
-"date":"Thu Nov 30 14:43:41 GMT+02:00 2023",
-"id":"004952323000",
-"phone":"01234567890",
-"taken":true,
-"user":"uSQ5ho94PQ4a4GreG"
+"amount" : "5.00",
+"category" : "VF-Cash",
+"date" : "Thu Nov 30 14:43:41 GMT+02:00 2023",
+"id" : "004952323000",
+"phone" : "01234567890",
+"taken" : true,
+"user" : "uSQ5ho94PQ4a4GreG",
+"usd" : "3.0" #ترجع هذه القيمة فقط عند استخدام المحافظ الرقمية (سعر العملة بالدولار)
 }"""
 
 
