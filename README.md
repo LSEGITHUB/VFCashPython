@@ -32,8 +32,9 @@ payment_link = autocash.create_payment_link(extra="username")
 print("Payment Link:", payment_link)
 
 # إنشاء رابط دفع ل Payeer
-payeer_link = autocash.create_payeer_payment_link(amount=100, callback_link="https://yourcallback.url")
-print("Payeer Payment Link:", payeer_link)
+#تم ايقاف Payeer من تاريخ 05/01/2026
+#payeer_link = autocash.create_payeer_payment_link(amount=100, callback_link="https://yourcallback.url")
+#print("Payeer Payment Link:", payeer_link)
 
 # إنشاء رابط دفع ل OKX
 okx_link = autocash.create_okx_payment_link(amount=100, extra="username")
